@@ -62,11 +62,24 @@
         </div>
         <div class="company-name">The Safe Decision</div> <!-- اسم الشركة -->
         <h1>تسجيل الدخول</h1>
-        <form action="login.php" method="POST">
-            <input type="text" name="username" placeholder="اسم المستخدم" required>
-            <input type="password" name="password" placeholder="كلمة المرور" required>
+        <form onsubmit="return login(event);">
+            <input type="text" id="usernameInput" placeholder="اسم المستخدم" required>
+            <input type="password" id="passwordInput" placeholder="كلمة المرور" required>
             <button type="submit">دخول</button>
         </form>
     </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            // هنا يمكنك إضافة المنطق للتحقق من صحة بيانات تسجيل الدخول
+            // على سبيل المثال، إذا كانت البيانات صحيحة، قم بتخزين اسم المستخدم في sessionStorage
+            sessionStorage.setItem("username", username);
+            window.location.href = "index.html"; // تأكد من أن اسم الملف صحيح
+        }
+    </script>
 </body>
 </html>
