@@ -75,10 +75,17 @@
             const username = document.getElementById('usernameInput').value;
             const password = document.getElementById('passwordInput').value;
 
-            // هنا يمكنك إضافة المنطق للتحقق من صحة بيانات تسجيل الدخول
-            // على سبيل المثال، إذا كانت البيانات صحيحة، قم بتخزين اسم المستخدم في sessionStorage
-            sessionStorage.setItem("username", username);
-            window.location.href = "index.html"; // تأكد من أن اسم الملف صحيح
+            // بيانات تسجيل الدخول الثابتة (يمكنك تعديلها حسب الحاجة)
+            const validUsername = "user"; // اسم المستخدم الصحيح
+            const validPassword = "password"; // كلمة المرور الصحيحة
+
+            // التحقق من صحة بيانات تسجيل الدخول
+            if (username === validUsername && password === validPassword) {
+                sessionStorage.setItem("username", username);
+                window.location.href = "index.html"; // تأكد من أن اسم الملف صحيح
+            } else {
+                alert("اسم المستخدم أو كلمة المرور غير صحيحة."); // رسالة خطأ
+            }
         }
     </script>
 </body>
